@@ -34,8 +34,15 @@
 \usepackage{chemfig} % 化學結構
 \usepackage{listings} % 清單
 \usepackage{xcolor} % 可以定義色彩
+\usepackage{sectsty} %section 格式
+\usepackage{type1cm} %字體大小
+\usepackage{indentfirst} %首行縮排
+\usepackage{fontspec}                  %引入字体设置宏包
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,chains}
 
-%%%%%%%%%%%%%%hypertef 設定%%%%%%%%%%%%%%%
+\setmainfont{Times New Roman}
+%%%%%%%%%%%%%%hyperref 設定%%%%%%%%%%%%%%%
 \hypersetup{hidelinks,
 unicode=true,
 colorlinks=true,
@@ -116,19 +123,20 @@ psdextra=true
 \renewcommand{\proofname}{\bf 證明:} 
 \newcommand{\pole}[2]{\mathbb{P}_{\mathcal{#1}} (#2)}
 \newcommand{\tg}[2]{\mathcal{T}_{\mathcal{#1}} (#2)}
-
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}} %参考文献上标
+\newcommand{\upcite}[1]{\cite{#1}} %参考文献上标
 %%%%%%%%%%%%%%計數器%%%%%%%%%%%%%%%
 \newtheorem{ans}{Answer}[section] %答案
 \newtheorem{ax}{Axiom}[section] %公理
 \newtheorem{cl}{Corollary}[section] %推論
 \newtheorem{con}{Conclusion}[section] %結論
 \newtheorem{clm}{Claim}[section] %主張,聲稱
-\newtheorem{df}{Definition}[section] %定義
+\newtheorem{df}{Definition}[subsubsection] %定義
 \newtheorem{ex}{Example}[section] %例題
 \newtheorem{exs}{Exercise}[section] %習題
 \newtheorem{lm}{Lemma}[section] %引理
 \newtheorem{pr}{Problem} %問題
-\newtheorem{pf}{Proof}[section] %證明
+\newtheorem{pf}{Proof}[subsubsection] %證明
 \newtheorem{pro}{Property}[section] %性質
 \newtheorem{prop}{Proposition}[section] %提議
 \newtheorem{rem}{Remark}[section] %備註
@@ -186,7 +194,14 @@ psdextra=true
 \renewcommand{\abstractname}{\LARGE Abstract} %設定摘要的標題名稱
 \renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
 \renewcommand{\thesubfigure}{(\roman{subfigure})}%設定圖片編號
-%\renewcommand\thesection{\zhnum{section}}%章節計數器類型
+
+
+%%%%%%%%%%章節計數器類型%%%%%%%%%%%%%%%%%
+\renewcommand\thesection{\zhnum{section}、}%章節計數器類型
+\renewcommand\thesubsection{(\zhnum{subsection})}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+\tikzstyle{ arrow1 } = [thick, ->, >= stealth]
+
 %\renewcommand\thesection{\zhnum{subsection}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -195,8 +210,9 @@ psdextra=true
 
 
 
+
 \begin{document}
-\pagestyle{fancy} %使用fancyhdr
+\pagestyle{empty} %使用fancyhdr
 
 %%%%%%%%%%%%%%頁首頁尾們%%%%%%%%%%%%%%%%%%%
 \lhead{\rightmark}
@@ -224,12 +240,22 @@ psdextra=true
     morekeywords={>,<,.,;,-,!,=,~},
     keywordstyle=\color{weborange},
     classoffset=0,
+    breaklines,%自動換行
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%流程圖定義%%%%%%%%%%%%%%%%%%%%%%
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 10cm, minimum height=1cm,text centered, draw = black, fill = red!40]
+\tikzstyle{process} = [rectangle, minimum width = 10cm, minimum height = 1cm, text centered, draw = black]
+\tikzstyle{io} = [trapezium, trapezium left angle = 70,trapezium right angle=110,minimum width=3cm,minimum height=1cm,text centered,draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \parindent=0pt
+
+
 
 \input{content.tex}
 

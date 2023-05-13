@@ -1,0 +1,144 @@
+\begin{thebibliography}{10}
+
+\bibitem{smile_importance}
+Guilherme Janson, Nuria~Castello Branco, Thais Maria~Freire Fernandes, Renata
+  Sathler, Daniela Garib, and Jos{\'e} Roberto~Pereira Lauris.
+\newblock Influence of orthodontic treatment, midline position, buccal corridor
+  and smile arc on smile attractiveness: A systematic review.
+\newblock {\em The Angle Orthodontist}, 81(1):153--161, 2011.
+
+\bibitem{smile_preferences_of_orthodontists}
+Parichart Pasukdee, Johnson Hsin-Chung Cheng, and De-Shing Chen.
+\newblock Smile preferences of orthodontists, general dentists, patients, and
+  the general public in three-quarter and lateral views.
+\newblock {\em American Journal of Orthodontics and Dentofacial Orthopedics},
+  159(4):e311--e320, 2021.
+
+\bibitem{frush1958dynesthetic}
+John~P Frush and Roland~D Fisher.
+\newblock The dynesthetic interpretation of the dentogenic concept.
+\newblock {\em The Journal of prosthetic dentistry}, 8(4):558--581, 1958.
+
+\bibitem{hulsey1970esthetic}
+Charles~M Hulsey.
+\newblock An esthetic evaluation of lip-teeth relationships present in the
+  smile.
+\newblock {\em American journal of orthodontics}, 57(2):132--144, 1970.
+
+\bibitem{sarver2007aesthetic}
+David Sarver and Ronald~S Jacobson.
+\newblock The aesthetic dentofacial analysis.
+\newblock {\em Clinics in plastic surgery}, 34(3):369--394, 2007.
+
+\bibitem{微笑審美差異}
+Vincent~O Kokich~Jr, H~Asuman~Kiyak, and Peter~A Shapiro.
+\newblock Comparing the perception of dentists and lay people to altered dental
+  esthetics.
+\newblock {\em Journal of Esthetic and Restorative Dentistry}, 11(6):311--324,
+  1999.
+
+\bibitem{微笑審美差異2}
+Hideki Ioi, Sangwook Kang, Takahiro Shimomura, Seong-sik Kim, Soo-byung Park,
+  Woo-sung Son, and Ichiro Takahashi.
+\newblock Effects of buccal corridors on smile esthetics in japanese and korean
+  orthodontists and orthodontic patients.
+\newblock {\em American Journal of Orthodontics and Dentofacial Orthopedics},
+  142(4):459--465, 2012.
+
+\bibitem{dsd_tech}
+Zeba Jafri, Nafis Ahmad, Madhuri Sawai, Nishat Sultan, and Ashu Bhardwaj.
+\newblock Digital smile design-an innovative tool in aesthetic dentistry.
+\newblock {\em Journal of oral biology and craniofacial research},
+  10(2):194--198, 2020.
+
+\bibitem{dsd_tech2}
+Christian Coachman, Marcelo~Alexandre Calamita, and Newton Sesma.
+\newblock Dynamic documentation of the smile and the 2d/3d digital smile design
+  process.
+\newblock {\em Int J Periodontics Restorative Dent}, 37(2):183--193, 2017.
+
+\bibitem{charavet2019benefits}
+Carole Charavet, Jean-Claude Bernard, Cyril Gaillard, and Michel Le~Gall.
+\newblock Benefits of digital smile design (dsd) in the conception of a complex
+  orthodontic treatment plan: A case report-proof of concept.
+\newblock {\em International orthodontics}, 17(3):573--579, 2019.
+
+\bibitem{dsd_tech3d}
+Hongqiang Ye, Kuan-Paul Wang, Yushu Liu, Yunsong Liu, and Yongsheng Zhou.
+\newblock Four-dimensional digital prediction of the esthetic outcome and
+  digital implementation for rehabilitation in the esthetic zone.
+\newblock {\em The Journal of Prosthetic Dentistry}, 123(4):557--563, 2020.
+
+\bibitem{renita}
+Kele Xu, Dawei Feng, and Haibo Mi.
+\newblock Deep convolutional neural network-based early automated detection of
+  diabetic retinopathy using fundus image.
+\newblock {\em Molecules}, 22(12):2054, 2017.
+
+\bibitem{lung}
+Qing Li, Weidong Cai, Xiaogang Wang, Yun Zhou, David~Dagan Feng, and Mei Chen.
+\newblock Medical image classification with convolutional neural network.
+\newblock In {\em 2014 13th international conference on control automation
+  robotics \& vision (ICARCV)}, pages 844--848. IEEE, 2014.
+
+\bibitem{cepha_net}
+Jiahong Qian, Ming Cheng, Yubo Tao, Jun Lin, and Hai Lin.
+\newblock Cephanet: An improved faster r-cnn for cephalometric landmark
+  detection.
+\newblock In {\em 2019 IEEE 16th International Symposium on Biomedical Imaging
+  (ISBI 2019)}, pages 868--871. IEEE, 2019.
+
+\bibitem{gingivitis}
+Dima~M Alalharith, Hajar~M Alharthi, Wejdan~M Alghamdi, Yasmine~M Alsenbel,
+  Nida Aslam, Irfan~Ullah Khan, Suliman~Y Shahin, Simona Diani{\v{s}}kov{\'a},
+  Muhanad~S Alhareky, and Kasumi~K Barouch.
+\newblock A deep learning-based approach for the detection of early signs of
+  gingivitis in orthodontic patients using faster region-based convolutional
+  neural networks.
+\newblock {\em International Journal of Environmental Research and Public
+  Health}, 17(22):8447, 2020.
+
+\bibitem{YOLACT++分割}
+Seulgi Lee and Jong-Eun Kim.
+\newblock Evaluating the precision of automatic segmentation of teeth, gingiva
+  and facial landmarks for 2d digital smile design using real-time instance
+  segmentation network.
+\newblock {\em Journal of Clinical Medicine}, 11(3):852, 2022.
+
+\bibitem{cheng2021relationship}
+Johnson Hsin-Chung Cheng, Mingming~Jareerat Luechapanichkul, and Tracy Yi-Hsuan
+  Lee.
+\newblock The relationship between dentofacial morphology and smile
+  characteristics in lateral and oblique views.
+\newblock {\em Journal of Dental Sciences}, 16(1):37--44, 2021.
+
+\bibitem{BlendMask}
+Hao Chen, Kunyang Sun, Zhi Tian, Chunhua Shen, Yongming Huang, and Youliang
+  Yan.
+\newblock Blendmask: Top-down meets bottom-up for instance segmentation.
+\newblock In {\em Proceedings of the IEEE/CVF conference on computer vision and
+  pattern recognition}, pages 8573--8581, 2020.
+
+\bibitem{YOLACT++}
+Chong Zhou.
+\newblock {\em Yolact++ Better Real-Time Instance Segmentation}.
+\newblock University of California, Davis, 2020.
+
+\bibitem{mask_r-cnn}
+Kaiming He, Georgia Gkioxari, Piotr Doll{\'a}r, and Ross Girshick.
+\newblock Mask r-cnn.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision}, pages 2961--2969, 2017.
+
+\bibitem{YOLACT}
+Daniel Bolya, Chong Zhou, Fanyi Xiao, and Yong~Jae Lee.
+\newblock Yolact: Real-time instance segmentation.
+\newblock In {\em Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}, pages 9157--9166, 2019.
+
+\bibitem{AdelaiDet}
+Zhi Tian, Hao Chen, Xinlong Wang, Yuliang Liu, and Chunhua Shen.
+\newblock {AdelaiDet}: A toolbox for instance-level recognition tasks.
+\newblock \url{https://git.io/adelaidet}, 2019.
+
+\end{thebibliography}

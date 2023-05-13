@@ -1,8 +1,0 @@
-\contentsline {section}{\numberline {0}無窮遠炒麵線}{1}{section.0}%
-\contentsline {section}{\numberline {1}表格}{1}{section.1}%
-\contentsline {section}{\numberline {2}方框}{2}{section.2}%
-\contentsline {section}{\numberline {3}多欄位}{2}{section.3}%
-\contentsline {section}{\numberline {4}插入圖片}{2}{section.4}%
-\contentsline {subsection}{\numberline {4.1}子圖並排}{2}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}圖片並排}{2}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Footnote}{3}{section.5}%
