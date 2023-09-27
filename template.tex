@@ -153,7 +153,16 @@ psdextra=true
     \setcounter{sol}{0} 
     \setcounter{thm}{0}
     }
-%%%%%%%%%%%%%%交叉引用%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%交叉引用hyperref 設定%%%%%%%%%%%%%%%
+\hypersetup{hidelinks,
+unicode=true,
+colorlinks=true,
+allcolors=black,
+pdfstartview=Fit,
+breaklinks=true,
+bookmarksdepth=true, % 生成目錄
+psdextra=true
+}
 \newrefformat{ans}{Answer\ref{#1}} %答案
 \newrefformat{ax}{Axiom\ref{#1}} %公理
 \newrefformat{cl}{Corollary\ref{#1}} %推論
@@ -171,6 +180,7 @@ psdextra=true
 \newrefformat{sol}{Solution\ref{#1}} %解答
 \newrefformat{thm}{Theorem\ref{#1}} %定理
 \newrefformat{fig}{\figurename\ \ref{#1}} %圖片標號
+\newrefformat{tab}{\tablename\ \ref{#1}} %圖片標號
 
 %%%%%%%%%%%%%%%重定義一些command%%%%%%%%%%%%%%%
 %\arabic 阿拉伯數字
@@ -183,6 +193,8 @@ psdextra=true
 \renewcommand{\refname}{參考資料}  %設定參考資料的標題名稱
 \renewcommand{\abstractname}{\LARGE Abstract} %設定摘要的標題名稱
 \renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
+\renewcommand{\tablename}{Table} %重定義圖片编号前缀词
+
 \renewcommand{\thesubfigure}{(\roman{subfigure})}%設定圖片編號
 
 
