@@ -15,6 +15,7 @@
 \usepackage{titling}    % 加強 title 功能
 \usepackage{fancyhdr}   % 頁首頁尾
 \usepackage{tabularx}   % 加強版 table
+\usepackage{booktabs}    %三線表靠它了	
 \usepackage{diagbox}
 \usepackage[square, comma, numbers, super, sort&compress]{natbib}  % cite加強版
 \usepackage[usenames, dvipsnames]{color}  % 可以使用顏色\color{red}
@@ -25,7 +26,7 @@
 \usepackage{indentfirst}
 \usepackage{bbm}
 \usepackage{pifont}
-\usepackage{prettyref} % 放超連結\label{}\prettyref{}
+
 \usepackage{multicol} % 局部分欄
 \usepackage{float}  % 浮動環境
 \usepackage{subfigure} % 並排圖片
@@ -37,12 +38,13 @@
 \usepackage{sectsty} %section 格式
 \usepackage{type1cm} %字體大小
 \usepackage{indentfirst} %首行縮排
-\usepackage{fontspec}                  %引入字体设置宏包
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes,chains}
 
-\setmainfont{Times New Roman}
+\usepackage{cchess}%象棋
+
+
+
 %%%%%%%%%%%%%%hyperref 設定%%%%%%%%%%%%%%%
+\usepackage{prettyref} % 放超連結\label{}\prettyref{}
 \hypersetup{hidelinks,
 unicode=true,
 colorlinks=true,
@@ -52,18 +54,6 @@ breaklinks=true,
 bookmarksdepth=true, % 生成目錄
 psdextra=true
 }
-
-%%%%%%%%%%%%%%中文 Environment%%%%%%%%%%%%%%%
-\setCJKmainfont{AR PL KaitiM Big5}
-\setCJKsansfont{AR PL KaitiM Big5}
-\setCJKmonofont{AR PL KaitiM Big5}
-\defaultCJKfontfeatures{AutoFakeBold=6,AutoFakeSlant=.4} %以後不用再設定粗斜
-\newCJKfontfamily\Kai{標楷體}
-\newCJKfontfamily\Hei{微軟正黑體}
-\newCJKfontfamily\NewMing{新細明體}
-\setCJKmainfont[AutoFakeBold=3,AutoFakeSlant=.4]{標楷體}%中文字分開設定字體
-\XeTeXlinebreaklocale "zh"             %這兩行一定要加，中文才能自動換行
-\XeTeXlinebreakskip = 0pt plus 1pt     %這兩行一定要加，中文才能自動換行
 
 
 %%%%%%%%%%%%%%%頁面設定%%%%%%%%%%%%%%%
@@ -197,14 +187,42 @@ psdextra=true
 
 
 %%%%%%%%%%章節計數器類型%%%%%%%%%%%%%%%%%
-\renewcommand\thesection{\zhnum{section}、}%章節計數器類型
-\renewcommand\thesubsection{(\zhnum{subsection})}
-\renewcommand\thesubsubsection{\arabic{subsubsection}}
+%\renewcommand\thesection{\zhnum{section}、}%章節計數器類型
+%\renewcommand\thesubsection{(\zhnum{subsection})}
+%\renewcommand\thesubsubsection{\arabic{subsubsection}}
 \tikzstyle{ arrow1 } = [thick, ->, >= stealth]
 
 %\renewcommand\thesection{\zhnum{subsection}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%TIKZ%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,chains}
+
+
+%%%%%%%%%%%%%%%%%%%%%%背景%%%%%%%%%%%%%%%%%%%%
+\usepackage{eso-pic}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%字體%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}                  %引入字体设置宏包
+\setmainfont{Times New Roman}
+%%%%%%%%%%%%%%中文 Environment%%%%%%%%%%%%%%%
+\setCJKmainfont{AR PL KaitiM Big5}
+\setCJKsansfont{AR PL KaitiM Big5}
+\setCJKmonofont{AR PL KaitiM Big5}
+\defaultCJKfontfeatures{AutoFakeBold=6,AutoFakeSlant=.4} %以後不用再設定粗斜
+\newCJKfontfamily\Kai{標楷體}
+\newCJKfontfamily\Hei{微軟正黑體}
+\newCJKfontfamily\NewMing{新細明體}
+\setCJKmainfont[AutoFakeBold=3,AutoFakeSlant=.4]{標楷體}%中文字分開設定字體
+\XeTeXlinebreaklocale "zh"             %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt     %這兩行一定要加，中文才能自動換行
+
+
+
 
 
 
@@ -212,8 +230,6 @@ psdextra=true
 
 
 \begin{document}
-\pagestyle{empty} %使用fancyhdr
-
 %%%%%%%%%%%%%%頁首頁尾們%%%%%%%%%%%%%%%%%%%
 \lhead{\rightmark}
 \chead{}
@@ -256,6 +272,7 @@ psdextra=true
 \parindent=0pt
 
 
+\pagestyle{fancy}%上下有槓槓
 
 \input{content.tex}
 
