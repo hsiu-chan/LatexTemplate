@@ -192,8 +192,7 @@ psdextra=true
 \renewcommand{\contentsname}{目錄}  %設定目錄的標題名稱
 \renewcommand{\refname}{參考資料}  %設定參考資料的標題名稱
 \renewcommand{\abstractname}{\LARGE Abstract} %設定摘要的標題名稱
-\renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
-\renewcommand{\tablename}{Table} %重定義圖片编号前缀词
+
 
 \renewcommand{\thesubfigure}{(\roman{subfigure})}%設定圖片編號
 
@@ -249,8 +248,44 @@ psdextra=true
 
 
 
+%%%%caption%%%%%%%%%%https://latex-tutorial.com/caption-customization-latex/
+\usepackage{booktabs}
+\usepackage{array, caption, threeparttable}
+\usepackage[labelfont=bf]{caption}
 
 
+% Label format
+\DeclareCaptionLabelFormat{custom}
+{%
+      #1 \textbf{#2}
+}
+\DeclareCaptionLabelSeparator{custom}{
+ 
+}
+
+\DeclareCaptionFormat{custom}
+{%
+    #1#2 #3
+}
+
+
+\captionsetup{
+  format=custom,%
+  labelformat=custom,%
+  labelsep=none,
+  textfont=normalfont,
+}
+
+\captionsetup[table]{
+  %labelsep=newline,%换行
+  justification=raggedright,
+  singlelinecheck=false,%預設情況下，如果標題適合單行，標準 LaTeX 文件類別會自動將標題居中。標題包也適應這種行為，因此通常會忽略您在這種情況下設定的理由。您可以透過設定選項singlelinecheck=false來停用此特殊處理。
+}
+
+\renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
+\renewcommand{\tablename}{Table} %重定義表格编号前缀词
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 %%%%%%%%%%%%%%頁首頁尾們%%%%%%%%%%%%%%%%%%%
