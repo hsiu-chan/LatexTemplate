@@ -324,5 +324,25 @@ text
 \section{怪東西}
 
 
+\begin{table}[htb]
+	\begin{center}
+	\caption[Manual narrowing scope of hyperparameters]{Manual narrowing scope of hyperparameters for 7 joints}
+	\label{table_ELM_random_range}
+	\begin{tabular}{ccc}
+		\toprule
+		{ Joint} & \multicolumn{1}{c}{{$\bm{L}$}} & \multicolumn{1}{c}{{$\boldsymbol{\lambda}$}} \\ \midrule
+		{1} & {[100, 500]} & {[\textover[c]{1}{100}, 10000]} \\
+		{2} & {[100, 450]} & {[\textover[c]{1}{100}, \textover[c]{1000}{10000}]} \\
+		{3} & {[100, 500]} & {[100, 10000]} \\
+		{4} & {[\textover[c]{75}{100}, 500]} & {[100, 10000]} \\
+		{5} & {[100, 500]} & {[100, 10000]} \\
+		{6} & {[\textover[c]{50}{100}, 500]} & {[\textover[c]{10}{100}, 10000]} \\
+		{7} & {[100, 500]} & {[\textover[c]{1}{100}, \textover[c]{1000}{10000}]} \\ 
+		\bottomrule
+			\end{tabular}
+	\end{center}
+\end{table}
+
+
 \bibliography{bibfile} 
 \bibliographystyle{unsrt}

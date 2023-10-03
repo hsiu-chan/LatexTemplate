@@ -217,6 +217,15 @@ psdextra=true
 %%%%%%%%%%%%%%%%%%%%%%背景%%%%%%%%%%%%%%%%%%%%
 \usepackage{eso-pic}
 
+%%%%%%%%%%%%%%%%%%%%%%表格%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{calc}
+\newcommand{\textover}[3][l]{%
+	% #1 is the alignment, default l
+	% #2 is the text to be printed
+	% #3 is the text for setting the width
+	\makebox[\widthof{#3}][#1]{#2}%
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%字體%%%%%%%%%%%%%%%%%%%
