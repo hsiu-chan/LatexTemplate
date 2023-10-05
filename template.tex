@@ -165,6 +165,7 @@ psdextra=true
     \setcounter{thm}{0}
     }
 %%%%%%%%%%%%%%交叉引用hyperref 設定%%%%%%%%%%%%%%%
+\usepackage{prettyref}
 \hypersetup{hidelinks,
 unicode=true,
 colorlinks=true,
@@ -225,7 +226,71 @@ psdextra=true
 %%%%%%%%%%%%%%%%%%%%%%背景%%%%%%%%%%%%%%%%%%%%
 \usepackage{eso-pic}
 
+%%%%%%%%%%%%%%%%%%%%%%空白填滿%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{calc}
+\newcommand{\textover}[3][l]{%
+	% #1 is the alignment, default l
+	% #2 is the text to be printed
+	% #3 is the text for setting the width
+	\makebox[\widthof{#3}][#1]{#2}%
+}
+%%%%%%%%%%%%%%hyperref 設定%%%%%%%%%%%%%%%
+\usepackage{prettyref} % 放超連結\label{}\prettyref{}
+\hypersetup{hidelinks,
+unicode=true,
+colorlinks=true,
+allcolors=black,
+pdfstartview=Fit,
+breaklinks=true,
+bookmarksdepth=true, % 生成目錄
+psdextra=true
+}
+
+
+%%%%%%%%%%%%%%%頁面設定%%%%%%%%%%%%%%%
+\setlength{\headheight}{15pt}  %with titling
+\setlength{\droptitle}{-1.5cm} %title 與上緣的間距
+\parindent=24pt %設定縮排的距離
+%\parskip=1ex  %設定行距
+%\pagestyle{empty}  % empty: 無頁碼
+%\pagestyle{fancy}  % fancy: fancyhdr
+
+%use with fancygdr
+%\lhead{\leftmark}
+%\chead{}
+%\rhead{}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{\thepage}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+%\fancypagestyle{firststyle}
+%{
+  %\fancyhf{}
+  %\fancyfoot[C]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+  %\renewcommand{\headrule}{\rule{\textwidth}{\headrulewidth}}
+%}
+
+%%%%%%%%%%%%%% 自定義Style%%%%%%%%%%%%%%
+\newtheoremstyle{mystyle}
+  {6pt}{15pt}%       上下間距
+  {}%               內文字體
+  {}%               縮排
+  {\bf}%            標頭字體
+  {.}%              標頭後標點
+  {1em}%            內文與標頭距離
+  {}%               Theorem head spec (can be left empty, meaning 'normal')
+
+% 改用粗體，預設 remark style 是斜體
+\theoremstyle{mystyle}	% 定理環境Style
+
+%%%%%%%%%%%%%%code Environment%%%%%%%%%%%%%%%
+\definecolor{commentgreen}{RGB}{2,112,10}
+\definecolor{eminence}{RGB}{108,48,130}
+\definecolor{weborange}{RGB}{255,165,0}
+\definecolor{frenchplum}{RGB}{129,20,83}
 
 %%%%%%%%%%%%%%%%%%%%%%%字體%%%%%%%%%%%%%%%%%%%
 \usepackage{fontspec}                  %引入字体设置宏包
