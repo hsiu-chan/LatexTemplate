@@ -105,12 +105,12 @@
 
 %\renewcommand\thesection{\zhnum{subsection}}
 
-\makeatletter
+\makeatletter % 麻煩的中文標號
 \renewcommand\@seccntformat[1]{
 \def\temp@@a{#1}%
 \def\temp@@b{section}%
 \ifx\temp@@a\temp@@b
-\csname the#1\endcsname、
+\csname the#1\endcsname、 
 \else
 \csname the#1\endcsname\hspace{0.5em}%
 \fi
