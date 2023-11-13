@@ -2,105 +2,59 @@
 %\usepackage{ctex}
 \usepackage[margin=3cm]{geometry} % 上下左右距離邊緣3cm
 \usepackage{amsmath,amsthm,amssymb} % 引入 AMS 數學環境
+
 \usepackage{hyperref} % 生成書籤
 \usepackage{bookmark} % 書籤加強版
-\usepackage{xeCJK} % 中文
-\usepackage{zhnumber}%中文編號
-\usepackage{yhmath} % math symbol
-\usepackage{graphicx} % 圖形插入用
-%\usepackage{wrapfig} % 文繞圖
-\usepackage{fontspec}    % 加這個就可以設定字體
-\usepackage{type1cm}	 % 設定fontsize用
-\usepackage{titlesec}   % 設定section等的字體
-\usepackage{titling}    % 加強 title 功能
-\usepackage{fancyhdr}   % 頁首頁尾
-\usepackage{tabularx}   % 加強版 table
-\usepackage{booktabs}    %三線表靠它了	
-\usepackage{multirow}
-\usepackage{diagbox}
-\usepackage[square, comma, numbers, super, sort&compress]{natbib}  % cite加強版
-\usepackage[usenames, dvipsnames]{color}  % 可以使用顏色\color{red}
-\usepackage{enumerate}  % 標號
-\usepackage{enumitem} % 標號
-\usepackage[normalem]{ulem} % 刪除線\sout{}
-\usepackage{cancel}
-\usepackage{indentfirst}
-\usepackage{bbm}
-\usepackage{pifont}
+\usepackage[square, comma, numbers, super, sort&compress]{natbib}  % bib cite加強版
 
+\usepackage{xeCJK} % 中文
+\usepackage{yhmath} % math symbol
+
+\usepackage{fontspec} % 加這個就可以設定字體
+\usepackage{type1cm} % 設定fontsize用
+\usepackage[dvipsnames, svgnames, x11names, usenames]{xcolor}% 可以使用顏色\color{red}
+\usepackage{sectsty} %section 格式
+\usepackage{titlesec} % 設定section等的字體
+
+\usepackage{eso-pic} % 背景
+\usepackage{titling} % 加強 title 功能
+\usepackage{fancyhdr} % 頁首頁尾
 \usepackage{multicol} % 局部分欄
+\usepackage{indentfirst} %首行縮排
+
+\usepackage{tabularx} % 加強版 table
+\usepackage{booktabs} % 三線表靠它了	
+\usepackage{multirow} % 表格欄位合併
+\usepackage{diagbox} % 表格畫斜線，上下有字
+
+\usepackage{enumerate}  % 有序清單
+\usepackage{enumitem} % 無序清單
+\usepackage{listings} % 清單(coding)
+\usepackage{zhnumber} % 數字變中文、中文編號 https://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/zhnumber/zhnumber.pdf
+
+
+
+
+
+\usepackage{graphicx} % 圖形插入用
 \usepackage{float}  % 浮動環境
+%\usepackage{wrapfig} % 文繞圖
 \usepackage{subfigure} % 並排圖片
-\usepackage{verbatim}  % 大註解
+
 \usepackage[version=4]{mhchem} % 化學模式\ce{[AgCl2]-}
 \usepackage{chemfig} % 化學結構
-\usepackage{listings} % 清單
-\usepackage{xcolor} % 可以定義色彩
-\usepackage{sectsty} %section 格式
-\usepackage{type1cm} %字體大小
-\usepackage{indentfirst} %首行縮排
-\usepackage{url}%網址會亮
 
+
+\usepackage{verbatim}  % 原樣輸出文本，忽视TeX命令。
+\usepackage{cancel} % 數學環境內把字劃掉 \cancel, \bcancel \xcancel \cancelto{<value>}{<expression>}
+\usepackage[normalem]{ulem} % 刪除線\sout{}
+\usepackage{pifont} %加入一些符號 https://dl.icdst.org/pdfs/files3/1900293ae8829c4c53fe55f2c9f0077c.pdf
+\usepackage{bbm} % 填補 mathbb 沒有小寫的缺憾 ex. $\mathbbm{1}$
 %\usepackage{cchess}%象棋
 
 
 
-%%%%%%%%%%%%%%hyperref 設定%%%%%%%%%%%%%%%
-\usepackage{prettyref} % 放超連結\label{}\prettyref{}
-\hypersetup{hidelinks,
-unicode=true,
-colorlinks=true,
-allcolors=black,
-pdfstartview=Fit,
-breaklinks=true,
-bookmarksdepth=true, % 生成目錄
-psdextra=true
-}
 
-
-%%%%%%%%%%%%%%%頁面設定%%%%%%%%%%%%%%%
-\setlength{\headheight}{15pt}  %with titling
-\setlength{\droptitle}{-1.5cm} %title 與上緣的間距
-\parindent=24pt %設定縮排的距離
-%\parskip=1ex  %設定行距
-%\pagestyle{empty}  % empty: 無頁碼
-%\pagestyle{fancy}  % fancy: fancyhdr
-
-%use with fancygdr
-%\lhead{\leftmark}
-%\chead{}
-%\rhead{}
-%\lfoot{}
-%\cfoot{}
-%\rfoot{\thepage}
-%\renewcommand{\headrulewidth}{0.4pt}
-%\renewcommand{\footrulewidth}{0.4pt}
-
-%\fancypagestyle{firststyle}
-%{
-  %\fancyhf{}
-  %\fancyfoot[C]{\footnotesize Page \thepage\ of \pageref{LastPage}}
-  %\renewcommand{\headrule}{\rule{\textwidth}{\headrulewidth}}
-%}
-
-%%%%%%%%%%%%%% 自定義Style%%%%%%%%%%%%%%
-\newtheoremstyle{mystyle}
-  {6pt}{15pt}%       上下間距
-  {}%               內文字體
-  {}%               縮排
-  {\bf}%            標頭字體
-  {.}%              標頭後標點
-  {1em}%            內文與標頭距離
-  {}%               Theorem head spec (can be left empty, meaning 'normal')
-
-% 改用粗體，預設 remark style 是斜體
-\theoremstyle{mystyle}	% 定理環境Style
-
-%%%%%%%%%%%%%%code Environment%%%%%%%%%%%%%%%
-\definecolor{commentgreen}{RGB}{2,112,10}
-\definecolor{eminence}{RGB}{108,48,130}
-\definecolor{weborange}{RGB}{255,165,0}
-\definecolor{frenchplum}{RGB}{129,20,83}
 %%%%%url%%%%%
 \usepackage{url}%網址會亮
 \def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
@@ -111,22 +65,71 @@ psdextra=true
 \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\,
 \do\?\do\'\do+\do\=\do\#}%URL断行
 
-%%%%%%%%%%%%%% new commands: %%%%%%%%%%%%%%
-\newcommand{\np}[1]{\\[{#1}] \indent}
-\newcommand{\transpose}[1]{{#1}^\mathrm{T}}
-\newcommand{\adj}{\mathrm{adj}}
-\newcommand{\degree}{^\circ}
-\newcommand{\degc}{$^{\circ}$C}
-\newcommand{\Arc}[1]{\wideparen{{#1}}}
-\newcommand{\sline}[1]{\overleftrightarrow{{#1}}}
-\newcommand{\Ray}[1]{\overrightarrow{{#1}}}
-\newcommand{\Segment}[1]{\overline{{#1}}}
-\renewcommand{\proofname}{\bf 證明:} 
-\newcommand{\pole}[2]{\mathbb{P}_{\mathcal{#1}} (#2)}
-\newcommand{\tg}[2]{\mathcal{T}_{\mathcal{#1}} (#2)}
-%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}} %参考文献上标
+%%%%%%%%%%%%%%%%%%%%TIKZ%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,chains}
+\tikzstyle{ arrow1 } = [thick, ->, >= stealth]
+
+
+%%%%%%%%%%%%%%%%%%%%%%空白填滿%%%%%%%%%%%%%%%%%%%%
+\usepackage{calc}%算距離之類的
+\newcommand{\textover}[3][l]{%
+	% #1 is the alignment, default l
+	% #2 is the text to be printed
+	% #3 is the text for setting the width
+	\makebox[\widthof{#3}][#1]{#2}%
+}
+
+
+%%%%%%%%%%章節計數器設定%%%%%%%%%%%%%%%%%
+%\arabic 阿拉伯數字
+%\roman 小寫的羅馬數字
+%\Roman 大寫的羅馬數字
+%\alph 小寫字母
+%\Alph 大寫字母
+%\zhnum 中文
+
+%\ctexset{
+ % section={
+  %  name={第,章},
+   % numbers=\chinese{section}
+  %}
+%}
+\zhnumsetup{style={Traditional,Financial}}
+\renewcommand\thesection{\zhnum{section}}%章節計數器類型
+\renewcommand\thesubsection{(\zhnum{subsection})}
+%\renewcommand\thesubsubsection{\arabic{subsubsection}}
+\zhnumsetup{style={Traditional,Normal}}
+
+%\renewcommand\thesection{\zhnum{subsection}}
+
+\makeatletter % 麻煩的中文標號
+\renewcommand\@seccntformat[1]{
+\def\temp@@a{#1}%
+\def\temp@@b{section}%
+\ifx\temp@@a\temp@@b
+\csname the#1\endcsname、 
+\else
+\csname the#1\endcsname\hspace{0.5em}%
+\fi
+}
+\makeatother
+
+
 
 %%%%%%%%%%%%%%計數器%%%%%%%%%%%%%%%
+\newtheoremstyle{newthm}
+  {}{}%       上下間距
+  {}%               內文字體
+  {}%               縮排
+  {\bf}%            標頭字體
+  {.}%              標頭後標點
+  {5pt}%            內文與標頭距離
+  {}%               Theorem head spec (can be left empty, meaning 'normal')
+
+\theoremstyle{newthm} 
 \newtheorem{ans}{Answer}[section] %答案
 \newtheorem{ax}{Axiom}[section] %公理
 \newtheorem{cl}{Corollary}[section] %推論
@@ -146,6 +149,7 @@ psdextra=true
 
 \newcommand{\resetcounters}
     {
+    %\setcounter{<newtheorem>}{<目錄級數>}
     \setcounter{section}{0}
     \setcounter{ans}{0}
     \setcounter{ax}{0}
@@ -163,9 +167,11 @@ psdextra=true
     \setcounter{rem}{0}
     \setcounter{sol}{0} 
     \setcounter{thm}{0}
-    }
+}
+
+
 %%%%%%%%%%%%%%交叉引用hyperref 設定%%%%%%%%%%%%%%%
-\usepackage{prettyref}
+\usepackage{prettyref}% 放超連結\label{}\prettyref{}
 \hypersetup{hidelinks,
 unicode=true,
 colorlinks=true,
@@ -194,58 +200,50 @@ psdextra=true
 \newrefformat{fig}{\figurename\ \ref{#1}} %圖片標號
 \newrefformat{tab}{\tablename\ \ref{#1}} %圖片標號
 
-%%%%%%%%%%%%%%%重定義一些command%%%%%%%%%%%%%%%
-%\arabic 阿拉伯數字
-%\roman 小寫的羅馬數字
-%\Roman 大寫的羅馬數字
-%\alph 小寫字母
-%\Alph 大寫字母
-%\zhnum 中文
-\renewcommand{\contentsname}{目錄}  %設定目錄的標題名稱
-\renewcommand{\refname}{參考資料}  %設定參考資料的標題名稱
-\renewcommand{\abstractname}{\LARGE Abstract} %設定摘要的標題名稱
-
-\newcommand{\upcite}[1]{\cite{#1}} %参考文献上标
 
 
-%%%%%%%%%%章節計數器類型%%%%%%%%%%%%%%%%%
-%\renewcommand\thesection{\zhnum{section}、}%章節計數器類型
-%\renewcommand\thesubsection{(\zhnum{subsection})}
-%\renewcommand\thesubsubsection{\arabic{subsubsection}}
-\tikzstyle{ arrow1 } = [thick, ->, >= stealth]
-
-%\renewcommand\thesection{\zhnum{subsection}}
-
-%%%%%%%%%%%%%%%%%%%%TIKZ%%%%%%%%%%%%%%%%%%%%%%
 
 
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes,chains}
 
 
-%%%%%%%%%%%%%%%%%%%%%%背景%%%%%%%%%%%%%%%%%%%%
-\usepackage{eso-pic}
 
-%%%%%%%%%%%%%%%%%%%%%%空白填滿%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{calc}
-\newcommand{\textover}[3][l]{%
-	% #1 is the alignment, default l
-	% #2 is the text to be printed
-	% #3 is the text for setting the width
-	\makebox[\widthof{#3}][#1]{#2}%
+%%%%%%%%%%%%caption%%%%%%%%%%https://latex-tutorial.com/caption-customization-latex/
+\usepackage{booktabs}
+\usepackage{array, caption, threeparttable}
+\usepackage[labelfont=bf]{caption}
+
+
+% Label format
+\DeclareCaptionLabelFormat{custom}
+{
+      #1 \textbf{#2}
 }
-%%%%%%%%%%%%%%hyperref 設定%%%%%%%%%%%%%%%
-\usepackage{prettyref} % 放超連結\label{}\prettyref{}
-\hypersetup{hidelinks,
-unicode=true,
-colorlinks=true,
-allcolors=black,
-pdfstartview=Fit,
-breaklinks=true,
-bookmarksdepth=true, % 生成目錄
-psdextra=true
+\DeclareCaptionLabelSeparator{custom}{
+ 
 }
+\DeclareCaptionFormat{custom}
+{%
+  #1#2 #3
+}
+
+\captionsetup{
+  format=custom,%
+  labelformat=custom,%
+  labelsep=none,
+  textfont=normalfont,
+}
+
+\captionsetup[table]{
+  %labelsep=newline,%换行
+  %font={small,bf,stretch=1},%字形, 行距
+  justification=raggedright,
+  singlelinecheck=false,%預設情況下，如果標題適合單行，標準 LaTeX 文件類別會自動將標題居中。標題包也適應這種行為，因此通常會忽略您在這種情況下設定的理由。您可以透過設定選項singlelinecheck=false來停用此特殊處理。
+}
+\renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
+\renewcommand{\tablename}{Table} %重定義表格编号前缀词
+\renewcommand{\thesubfigure}{(\roman{subfigure})}%設定圖片編號
+
 
 
 %%%%%%%%%%%%%%%頁面設定%%%%%%%%%%%%%%%
@@ -272,25 +270,6 @@ psdextra=true
   %\fancyfoot[C]{\footnotesize Page \thepage\ of \pageref{LastPage}}
   %\renewcommand{\headrule}{\rule{\textwidth}{\headrulewidth}}
 %}
-
-%%%%%%%%%%%%%% 自定義Style%%%%%%%%%%%%%%
-\newtheoremstyle{mystyle}
-  {6pt}{15pt}%       上下間距
-  {}%               內文字體
-  {}%               縮排
-  {\bf}%            標頭字體
-  {.}%              標頭後標點
-  {1em}%            內文與標頭距離
-  {}%               Theorem head spec (can be left empty, meaning 'normal')
-
-% 改用粗體，預設 remark style 是斜體
-\theoremstyle{mystyle}	% 定理環境Style
-
-%%%%%%%%%%%%%%code Environment%%%%%%%%%%%%%%%
-\definecolor{commentgreen}{RGB}{2,112,10}
-\definecolor{eminence}{RGB}{108,48,130}
-\definecolor{weborange}{RGB}{255,165,0}
-\definecolor{frenchplum}{RGB}{129,20,83}
 
 %%%%%%%%%%%%%%%%%%%%%%%字體%%%%%%%%%%%%%%%%%%%
 \usepackage{fontspec}                  %引入字体设置宏包
@@ -321,46 +300,35 @@ psdextra=true
 %\def\huge{\fontsize{32}{48}\selectfont}
 %\def\Huge{\fontsize{36}{54}\selectfont}
 
+%%%%%%%%%%%%%%code Environment%%%%%%%%%%%%%%%
+\definecolor{commentgreen}{RGB}{2,112,10}
+\definecolor{eminence}{RGB}{108,48,130}
+\definecolor{weborange}{RGB}{255,165,0}
+\definecolor{frenchplum}{RGB}{129,20,83}
 
 
-%%%%%%%%%%%%caption%%%%%%%%%%https://latex-tutorial.com/caption-customization-latex/
-\usepackage{booktabs}
-\usepackage{array, caption, threeparttable}
-\usepackage[labelfont=bf]{caption}
+
+%%%%%%%%%%%%%%%重定義一些command%%%%%%%%%%%%%%%
+\renewcommand{\contentsname}{目錄}  %設定目錄的標題名稱
+\renewcommand{\refname}{參考資料}  %設定參考資料的標題名稱
+\renewcommand{\abstractname}{\LARGE Abstract} %設定摘要的標題名稱
+
+%%%%%%%%%%%%%% new commands: %%%%%%%%%%%%%%
+\newcommand{\np}[1]{\\[{#1}] \indent}
+\newcommand{\transpose}[1]{{#1}^\mathrm{T}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\degree}{^\circ}
+\newcommand{\Arc}[1]{\wideparen{{#1}}}
+\newcommand{\sline}[1]{\overleftrightarrow{{#1}}}
+\newcommand{\Ray}[1]{\overrightarrow{{#1}}}
+\newcommand{\Segment}[1]{\overline{{#1}}}
+\renewcommand{\proofname}{\bf {證明:}} 
+\newcommand{\pole}[2]{\mathbb{P}_{\mathcal{#1}} (#2)}
+\newcommand{\tg}[2]{\mathcal{T}_{\mathcal{#1}} (#2)}
+\newcommand{\upcite}[1]{\cite{#1}} %参考文献上标
 
 
-\DeclareCaptionLabelFormat{custom}
-{%
-      #1 \textbf{#2}
-}
-\DeclareCaptionLabelSeparator{custom}{
- 
-}
 
-\DeclareCaptionFormat{custom}
-{%
-    #1#2 #3
-}
-
-
-\captionsetup{
-  format=custom,%
-  labelformat=custom,%
-  labelsep=none,
-  textfont=normalfont,
-}
-
-\captionsetup[table]{
-  %labelsep=newline,%换行
-  justification=raggedright,
-  singlelinecheck=false,%預設情況下，如果標題適合單行，標準 LaTeX 文件類別會自動將標題居中。標題包也適應這種行為，因此通常會忽略您在這種情況下設定的理由。您可以透過設定選項singlelinecheck=false來停用此特殊處理。
-}
-
-\renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
-\renewcommand{\tablename}{Table} %重定義表格编号前缀词
-\renewcommand{\thesubfigure}{(\roman{subfigure})}%設定圖片編號
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 %%%%%%%%%%%%%%頁首頁尾們%%%%%%%%%%%%%%%%%%%
@@ -391,7 +359,6 @@ psdextra=true
     classoffset=0,
     breaklines,%自動換行
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%流程圖定義%%%%%%%%%%%%%%%%%%%%%%
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 10cm, minimum height=1cm,text centered, draw = black, fill = red!40]
 \tikzstyle{process} = [rectangle, minimum width = 10cm, minimum height = 1cm, text centered, draw = black]
