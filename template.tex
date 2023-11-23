@@ -146,6 +146,8 @@
 \newtheorem{rem}{Remark}[section] %備註
 \newtheorem{sol}{Solution}[section] %解答
 \newtheorem{thm}{Theorem}[section] %定理
+\newtheorem{dsc}{Discussion\vspace*{0.3em}}
+
 
 \newcommand{\resetcounters}
     {
@@ -167,6 +169,8 @@
     \setcounter{rem}{0}
     \setcounter{sol}{0} 
     \setcounter{thm}{0}
+    \setcounter{dsc}{0}
+
 }
 
 
@@ -197,6 +201,8 @@ psdextra=true
 \newrefformat{rem}{Remark\ref{#1}} %備註
 \newrefformat{sol}{Solution\ref{#1}} %解答
 \newrefformat{thm}{Theorem\ref{#1}} %定理
+\newrefformat{dsc}{Discussion\ref{#1}} %討論
+
 \newrefformat{fig}{\figurename\ \ref{#1}} %圖片標號
 \newrefformat{tab}{\tablename\ \ref{#1}} %圖片標號
 

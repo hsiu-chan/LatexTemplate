@@ -88,7 +88,37 @@ itemA   & itemB   & itemC \\
   \bottomrule
 \end{tabular}
 
-
+\begin{table*}[t]
+  \centering
+  \caption{MAP scores of teacher model, different student models with 4 widths and three baseline models with different length of binary codes on CIFAR-10 and SUN datasets.}
+  \label{table1}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{\multirow{2}{*}{Model}} &\multirow{2}{*}{FLOPs}&\multirow{2}{*}{Params} & \multicolumn{4}{c|}{CIFAR-10}&\multicolumn{4}{c|}{SUN}\\
+  \cline{5-12}
+  
+  \multicolumn{2}{|c|}{} & & & 12bits & 24bits & 32bits & 48bits & 12bits & 24bits & 32bits & 48bits \\
+  \hline
+  
+  \multicolumn{2}{|c|}{Teacher} &4.12G	&25.56M	&0.87841	&0.89512	&0.9014	&0.90601	&0.83587	&0.85736	&0.86297	&0.87103\\ 
+  \hline
+  
+  %0.25x-----------------
+  \multirow{4}{*}{$0.25\times$} & Stu-1 & 0.15G & 1.03M &
+  0.70746 & 0.73458 &	0.74909 &	0.75833 &	0.69618 &	0.76631 &	0.78075 &	0.78787 \\
+  \cline{2-12}
+  
+  \multirow{4}{*}{} & Stu-2 &0.19G	&1.08M	&0.7629	&0.79111	&0.80039	&0.80519	&0.73539	&0.79714	&0.80753	&0.81195\\
+  \cline{2-12}
+  
+  \multirow{4}{*}{} & Stu-3 &0.26G	&1.43M	&0.84684	&0.86443	&0.87384	&0.88268	&0.79284	&0.83442	&0.84350	&0.84353\\
+  \cline{2-12}
+  
+  \multirow{4}{*}{} & Stu-4 & 0.29G	&1.99M	&0.85901	&0.87269	&0.8836	&0.88728	&0.81997	&0.84620	&0.85041	&0.85036\\
+  \hline
+  \end{tabular}
+  \label{table_MAP}
+  \end{table*}
 
 
 
