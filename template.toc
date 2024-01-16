@@ -2,9 +2,9 @@
 \contentsline {subsection}{\numberline {(一)}short}{2}{subsection.0.1}%
 \contentsline {subsection}{\numberline {(二)}空行的方法}{2}{subsection.0.2}%
 \contentsline {subsection}{\numberline {(三)}short}{2}{subsection.0.3}%
-\contentsline {subsection}{\numberline {(四)}表格}{2}{subsection.0.4}%
-\contentsline {subsection}{\numberline {(五)}方框}{3}{subsection.0.5}%
-\contentsline {subsection}{\numberline {(六)}code}{3}{subsection.0.6}%
+\contentsline {subsection}{\numberline {(四)}表格}{3}{subsection.0.4}%
+\contentsline {subsection}{\numberline {(五)}方框}{4}{subsection.0.5}%
+\contentsline {subsection}{\numberline {(六)}code}{4}{subsection.0.6}%
 \contentsline {subsection}{\numberline {(七)}多欄位}{4}{subsection.0.7}%
 \contentsline {subsection}{\numberline {(八)}Footnote}{4}{subsection.0.8}%
 \contentsline {section}{\numberline {一}圖片}{5}{section.1}%

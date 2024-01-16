@@ -1,4 +1,4 @@
-\raggedright
+\RaggedRight
 \setlength{\parindent}{2em} %首行缩进
 \newpage
 
@@ -53,6 +53,23 @@ $$
 ~\\%空行
 
 \subsection[short]{對齊}
+
+\begin{minipage}{15em}
+  If I do not leave any blank lines \LaTeX{} will continue  this text without making it into a new paragraph.  Notice how there was no indentation in the text after equation (1).  
+    Also notice how even though I hit enter after that sentence and here $\downarrow$
+     \LaTeX{} formats the sentence without any break.  Also   look  how      it   doesn't     matter          how    many  spaces     I put     between       my    words.
+  
+\end{minipage}
+v.s.
+\begin{minipage}{15em}
+  \justifying
+  If I do not leave any blank lines \LaTeX{} will continue  this text without making it into a new paragraph.  Notice how there was no indentation in the text after equation (1).  
+    Also notice how even though I hit enter after that sentence and here $\downarrow$
+     \LaTeX{} formats the sentence without any break.  Also   look  how      it   doesn't     matter          how    many  spaces     I put     between       my    words.
+  
+\end{minipage}
+
+
 \begin{alignat*}{4}
   &\text{組}&\text{別}:\ &\text{第14組}\\
   &\text{主寫}&\text{人}:\ &\text{我 }\\
@@ -60,6 +77,14 @@ $$
        &&&\text{他 }\\
   &\text{日}&\text{期}:\ &\text{2023/09/10}\\
 \end{alignat*}   
+
+
+
+\begin{tabular}{p{\widthof{執行計畫學生}}ll}
+  執行計畫學生&：& @@@\\
+  研\hfill 究\hfill 期\hfill 間&：&112年07月01日至113年02月29日止，計8個月\\
+  指\hfill 導 \hfill 教 \hfill 授&：& @@@
+\end{tabular}
 
 
 \subsection{表格}
