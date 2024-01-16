@@ -339,7 +339,10 @@ psdextra=true
 \newcommand{\upcite}[1]{\cite{#1}} %参考文献上标
 
 
-
+\newcount\thisyear%%%中華民國年月日
+\thisyear=\year%%%中華民國年月日
+\advance\thisyear by -1911%%%中華民國年月日
+\newcommand{\ROCtoday}{\the\thisyear 年 \the\month 月 \the\day 日}%%%中華民國年月日
 
 \begin{document}
 %%%%%%%%%%%%%%頁首頁尾們%%%%%%%%%%%%%%%%%%%
