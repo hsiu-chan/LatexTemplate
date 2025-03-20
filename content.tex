@@ -48,7 +48,9 @@ $$
 L = \frac{1}{n}\sum_{n} |\hat{y}-y|
 $$
 
-當然 Loss function不是唯一的，可以根據情況選擇合適的 loss 。現在我們的目標可以寫成:
+當然 Loss function不是唯一的，可以根據情況選擇合適的 loss，例如在 Classification 任務中，常會用 Cross-Entropy Loss。 
+
+現在我們的目標可以寫成:
 
 $$
 \mbox{find:}\ w^*, b^* = \min_{w,b} L
@@ -115,15 +117,37 @@ $$
 \mbox{let}\quad r = b + Wx 
 $$
 $$
-y = \sum_i c_i \frac{1}{1+e^{r}} = \sum_i c_i Sigmoid(r) =C^TSigmoid(r)
+y = b'+\sum_i c_i \frac{1}{1+e^{r}} = b' + \sum_i c_i Sigmoid(r) = b' + C^TSigmoid(r)
 $$
+其中 C, b' 都是 weight。
 
 
+如果我們把輸出的 y 當作 x 繼續重複疊 r 和 sigmoid 層就是神經網路 Neural Network 或 Deep learning，放在中間的層叫做 Hidden layer。
+
+\includegraphics[width=.8\textwidth]{paste_src/2025-03-20-14-24-18.png}
+
+\subsection*{Batch and epoch}
+
+訓練資料會非常多，在實際做 gradient descent 的時候不會一次對所有資料算 loss，而是將資料隨機分成數個 Batch ，每次用一個 Batch 裡面的資料算 loss 和 gradient 來更新 weight。所有的 Batch 都用過一輪叫做一個 Epoch。
+
+Batch 如果取的小，每個 Epoch 會更新 weight 很多次，計算效率較低。但每個 Batch 就較不能代表整體，所以算出來的 gradient 變化大，Loss 收斂較不穩定，但或許能跳出區間最小值。
+
+每次在計算 gradient 的時候 Batch 的數據會被丟進 GPU 顯存。如果 Batch 太大顯存放不下，電腦會報記憶體錯誤，這時候只能減少 Batch。
+
+\subsection{Classification} 
+
+要讓函數輸出類別，最直觀的方法是 One-Hot Encoding。如果有 $N$ 類，就構建 N 維向量代表每個類別，形如: 
+
+\begin{align*}
+  &[ 1\ 0\ 0 \dots 0]\\
+  &[ 0\ 1\ 0 \dots 0]\\
+  &\vdots \\
+  &[ 0\ 0\ 0 \dots 1]
+\end{align*}
+這樣就能讓模型輸出類別。
 
 
-
-
-
+但這麼做在 N 很大的時候會大幅增加資料的維度，讓模型參數量暴增。另外， One-Hot Encoding 也假設了這些類別間彼此獨立。如果要做的分類任務的類別彼此相關，又數量很多，例如詞彙預測，One-Hot Encoding 就不是好方法。
 
 
 
