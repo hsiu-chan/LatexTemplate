@@ -2,7 +2,7 @@
 \setlength{\parindent}{2em} %首行缩进
 \newpage
 
-\title{射影幾何自助餐} %標題
+\title{影像辨識} %標題
 \author{Chen Xiang-Wei} %編輯這份講義的作者
 
 \date{\today}%今天
@@ -11,331 +11,112 @@
 \maketitle
 \thispagestyle{fancy}
 \raggedright
-\rhead{模板}
-\tableofcontents  % 生成目錄
+\rhead{影像辨識}
+%\tableofcontents  % 生成目錄
 %請在以下輸入內容
 
-\setcounter{section}{-1}
-
-\section{無窮遠炒麵線}
-\pro
-{\color[RGB]{0,255,200}對於}{\color{blue}複}\textbf{平}\textit{面}
-~\\%空行
-~\\%空行
-上五點$z_{1}, z_{2}, z_{3},z_{4},z_{5}$，若\\
-\[(z_{1},z_{2};z_{3},z_{4})=(z_{1},z_{2};z_{3},z_5)\]
-則$z_{4}=z_{5}$\\
 
 
-\pro 
+\section{概論}
+
+\subsection{機器學習}
+
+機器學習是一種尋找目標函數的方法，常見的任務包含 Regression, Classification。舉例而言，若要用前三天的氣溫預測明天的氣溫，即是要找到 f，滿足: 
+
 $$
-\frac{\cancel{n}}{si\bcancel{n} x}=\frac{1}{six}=\xcancel{\frac{1}{6}}
+f(\mbox{前三天的氣溫}) = \mbox{明天的氣溫}
 $$
 
-\subsection[short]{特殊字}
-
-\#
-\$
-\%
-\{
-\}
-\~{}
-\textbackslash
-\^{}
-
-\zhnumber{20120/20120}\\
-
-\subsection{空行的方法}
-
-\textbackslash vspace\{1cm\}
-\vspace{1cm}
-
-\~{}\textbackslash\textbackslash
-~\\%空行
-
-\subsection[short]{對齊}
-
-\begin{minipage}{15em}
-  If I do not leave any blank lines \LaTeX{} will continue  this text without making it into a new paragraph.  Notice how there was no indentation in the text after equation (1).  
-    Also notice how even though I hit enter after that sentence and here $\downarrow$
-     \LaTeX{} formats the sentence without any break.  Also   look  how      it   doesn't     matter          how    many  spaces     I put     between       my    words.
-  
-\end{minipage}
-v.s.
-\begin{minipage}{15em}
-  \justifying
-  If I do not leave any blank lines \LaTeX{} will continue  this text without making it into a new paragraph.  Notice how there was no indentation in the text after equation (1).  
-    Also notice how even though I hit enter after that sentence and here $\downarrow$
-     \LaTeX{} formats the sentence without any break.  Also   look  how      it   doesn't     matter          how    many  spaces     I put     between       my    words.
-  
-\end{minipage}
-
-
-\begin{alignat*}{4}
-  &\text{組}&\text{別}:\ &\text{第14組}\\
-  &\text{主寫}&\text{人}:\ &\text{我 }\\
-  &\text{組}&\text{員}:\ &\text{你 }\\
-       &&&\text{他 }\\
-  &\text{日}&\text{期}:\ &\text{2023/09/10}\\
-\end{alignat*}   
-
-
-
-\begin{tabular}{p{\widthof{執行計畫學生}}ll}
-  執行計畫學生&：& @@@\\
-  研\hfill 究\hfill 期\hfill 間&：&112年07月01日至113年02月29日止，計8個月\\
-  指\hfill 導 \hfill 教 \hfill 授&：& @@@
-\end{tabular}
-
-
-\subsection{表格}
-\begin{tabular}[t]{|l|c|r|}
-\hline%畫一條橫線
-\diagbox{c}{r} & column2 & column3 \\
-\hline%畫一條橫線
-item1   & item2   & item3 \\
-itemA   & itemB   & itemC \\
-\hline
-\end{tabular}
-
-\subsubsection*{三線表}
-\begin{tabular}{cccccc}
-  \toprule
-  序号 & 姓名 & 性别 & 年龄 & 身高/cm & 体重/kg \\
-  \midrule
-  1 & 张三 & M & 16 & 163 & 50 \\
-  
-  \cmidrule(lr){2-3}
-  \cmidrule(lr){4-5}
-  \cmidrule(lr){6-6}\morecmidrules\cmidrule(lr){6-6}
-
-  2 & 王红 & F & 15 & 159 & 47 \\
-  3 & 李二 & M & 17 & 165 & 52 \\
-  \bottomrule
-\end{tabular}
-
-\begin{table*}[t]
-  \centering
-  \caption{MAP scores of teacher model, different student models with 4 widths and three baseline models with different length of binary codes on CIFAR-10 and SUN datasets.}
-  \label{table1}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-  \hline
-  \multicolumn{2}{|c|}{\multirow{2}{*}{Model}} &\multirow{2}{*}{FLOPs}&\multirow{2}{*}{Params} & \multicolumn{4}{c|}{CIFAR-10}&\multicolumn{4}{c|}{SUN}\\
-  \cline{5-12}
-  
-  \multicolumn{2}{|c|}{} & & & 12bits & 24bits & 32bits & 48bits & 12bits & 24bits & 32bits & 48bits \\
-  \hline
-  
-  \multicolumn{2}{|c|}{Teacher} &4.12G	&25.56M	&0.87841	&0.89512	&0.9014	&0.90601	&0.83587	&0.85736	&0.86297	&0.87103\\ 
-  \hline
-  
-  %0.25x-----------------
-  \multirow{4}{*}{$0.25\times$} & Stu-1 & 0.15G & 1.03M &
-  0.70746 & 0.73458 &	0.74909 &	0.75833 &	0.69618 &	0.76631 &	0.78075 &	0.78787 \\
-  \cline{2-12}
-  
-  \multirow{4}{*}{} & Stu-2 &0.19G	&1.08M	&0.7629	&0.79111	&0.80039	&0.80519	&0.73539	&0.79714	&0.80753	&0.81195\\
-  \cline{2-12}
-  
-  \multirow{4}{*}{} & Stu-3 &0.26G	&1.43M	&0.84684	&0.86443	&0.87384	&0.88268	&0.79284	&0.83442	&0.84350	&0.84353\\
-  \cline{2-12}
-  
-  \multirow{4}{*}{} & Stu-4 & 0.29G	&1.99M	&0.85901	&0.87269	&0.8836	&0.88728	&0.81997	&0.84620	&0.85041	&0.85036\\
-  \hline
-  \end{tabular}
-  \label{table_MAP}
-  \end{table*}
-
-
-
-\begin{table}[ht]%這裡或頂部
-  \begin{minipage}{.5\textwidth}
-    \setlength{\abovecaptionskip}{0cm} % 调整caption间距
-    \caption{第一次實驗吸光值}
-      \label{tab:1}
-      \begin{tabular}[t]{ccc}
-        \toprule
-        BSA (mg)&OD595nm&raw data\\
-        \midrule
-  0&0&0.122\\
-  2&0.107&0.229\\
-  4&0.12&0.242\\
-  6&0.199&0.321\\
-  8&0.244&0.366\\
-  10&0.227&0.349\\
-  5μl unknown&0.129&0.251\\
-  10μl unknown&0.219&0.341\\
-  
-        \bottomrule
-      
-      \end{tabular}
-  \end{minipage}
-  \begin{minipage}{.5\textwidth}
-  \caption{第二次實驗吸光值}
-  \label{tab:2}
-    \centering
-      \begin{tabular}[t]{ccc}
-        \toprule
-        BSA (mg)&OD595nm&raw data\\
-        \midrule
-  0&0&0.119\\
-  2&0.091&0.21\\
-  4&0.102&0.221\\
-  6&0.177&0.296\\
-  8&0.229&0.348\\
-  10&0.216&0.335\\
-  5μl unknown&0.132&0.251\\
-  10μl unknown&0.222&0.341\\
-        \bottomrule
-      
-      \end{tabular}
-  \end{minipage}
-  \end{table}
-
-
-
-  \begin{table}
-    \centering
-    \begin{tabular}{|c|c|c|c|}
-      \hline
-      \multirow{2}*{合并两行一列} & 二 & 三 & 四 \\
-      \cline{2-4}
-      ~ & 2 & 3 & 4 \\
-      \hline
-    \end{tabular}
-  \end{table}
-\subsection{方框}
-\fbox{
-  \parbox{\textwidth}{
-想法：
-容易發現$HA_{PH}C_{aH}C_{aP}, HB_{PH}C_{bH}C_{bP}, HC_{PH}C_{cH}C_{cP}$是平行四邊形，\\
-欲構造共圓四點$UW_aW_bW_c$使$HA_{PH},HB_{PH},HC_{PH}$分別和$UW_a,UW_a,UW_a$\\
-平行且長度比例相同即可證明命題\\
-
-  }
-}
-
-\subsection{code}
-
-\begin{lstlisting}
-  import cv2
-  import mediapipe as mp
-  import numpy as np
-  import statistics
-  import math
-\end{lstlisting}
-
-\subsection{多欄位}
-\begin{multicols}{2}
-  \begin{enumerate}[label=(\roman*)]
-  \item 取$P$為$\Delta ABC$垂心$H$
-  \item {\color{blue}取$P$為$\Delta ABC$外心$O$}
-  \item {\color[RGB]{0,255,200}取$Q$為$\Delta ABC$外心$O$}
-  \item 取$P$為$\Delta ABC$外接圓上一點
-  \item 取$P,Q$為同一點
-  \item 取$Q$為$\Delta ABC$垂心$H$
-  \item 當取$P$是定點時，$Q$滿足$H,A_3,B_3,C_3$四個共圓的軌跡不超過6次
-  \end{enumerate}
-\end{multicols}
-
-\subsection{Footnote}
-  我是原文\footnote{我是角標}
-
-
-
-\newpage
-\section{圖片}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}[b]{0.4\textwidth} %minipage寬
-  \centering
-  \includegraphics[width=1\textwidth]{a.png}
-  \caption{正面照\upcite{dsd_tech2}}
-  \label{fig:正面}
-  \end{minipage}
-  \begin{minipage}[b]{0.4\textwidth} %minipage宽
-  \centering
-  \includegraphics[width=1\textwidth]{paste_src/2023-02-07-20-50-39.png}
-  \caption{側面照\upcite{dsd_tech2}}
-  \label{fig:側面}
-  \end{minipage}
-  \end{figure}
-  
-\begin{figure}[H]%與文字並排
-    \centering %圖片全居中
-    %並排幾個圖就要開幾個minipage
-    \begin{minipage}[b]{0.4\textwidth} %minipage寬
-      \centering %图片局部居中
-      \includegraphics[width=0.8\textwidth]{a.png}
-      \caption{最右邊是迪西}
-      \label{fig:迪西}
-    \end{minipage}
-    \begin{minipage}[b]{0.4\textwidth} %minipage宽
-      \centering %图片局部居中
-      \includegraphics[width=0.8\textwidth]{a.png}
-      \caption{再來是丁丁}
-      \label{fig:丁丁}
-    \end{minipage}
-  \end{figure}
-  所以
-  丁丁是\prettyref{fig:丁丁}
-  迪西是\prettyref{fig:迪西}
+接著如果假設 f 是前三天氣溫的線性函數我們可以寫成
 
+$$
+t_{tomorrow}=y= b + w_1t_1+w_2t_2+w_3t_3
+$$
 
+當然現在不知道 $w_i, b$ 是多少。我們稱現在這個猜測的形式為 model，要找的$w_i, b$ 稱為weight。機器學習就是要用現有的數據 (Training data)去找出 weight，在這個例子中我們要可能需要蒐集前100天的氣溫資料。
 
+\subsubsection*{Loss function 與 gradient descent}
+一開始會隨機的初始化 weight，而 Loss function 則用於評估目前找到的函數和真實數據的差距。剛剛的例子中對於某一筆數據，真實的氣溫為 $\hat{y}$，前三天的氣溫為$X$，則預測函數 
 
-\section{My Chemical LaTeX}
-  \subsection*{一些語法}
-  
-  \ce{2[AgCl2]-}\\
-  \begin{minipage}[b]{0.3\textwidth}
-    \centering
-    \chemfig{*6(-=-=-=)}\\
-    \chemfig{*5(-----)}\\
-  \end{minipage}\\
-  
-  \chemfig{*6(-=-=-=)}\\
-  \chemfig{*5(-----)}\\
-  \chemfig{A-B}\\
-  \chemfig{A=B}\\
-  \chemfig{A~B}\\
-  \chemfig{A>B}\\
-  \chemfig{A>:B}\\
-  \chemfig{A>|B}\\
-  \chemfig{C(-[1]1)(-[2]2)(-[3]3)(-[4]4)(-[5]5)(-[6]6)(-[7]7)(-[0]0)}
-  \ex 乙烯
-  \chemfig{C(-[3]H)(-[5]H)=C(-[1]H)(-[7]H)}
-  aaa
+$$
+y= b + W\cdot X
+$$
+ 
+可以取 Loss function
 
-  
+$$
+L = \frac{1}{n}\sum_{n} |\hat{y}-y|
+$$
 
+當然 Loss function不是唯一的，可以根據情況選擇合適的 loss 。現在我們的目標可以寫成:
 
-    
+$$
+\mbox{find:}\ w^*, b^* = \min_{w,b} L
+$$
 
+\includegraphics[width=.6\textwidth]{paste_src/2025-03-20-03-16-44.png}
 
+\textbf{Gradient descent (梯度下降)}是找到 $w^*, b^*$的方法。如上圖，從 starting 開始，我們每次朝微分方向邁出一步，逐漸走到最低點，即:
 
+$$w = w_0+\alpha\frac{\partial L}{\partial w}|_{w=w_0} \quad\alpha \mbox{: Learinig rate}$$
 
+Learinig rate 是一步的步長。過短導致 loss 下降效率低，過長可能找不到最低點
+\includegraphics[width=.6\textwidth]{paste_src/2025-03-20-05-09-19.png}
 
+\subsection{Optimizer}
+Optimizer 即調整 Learinig rate 的方法，大部分用 adam 最穩定 (結合 momentum + RMSProp)
 
+原本的 Gradient descent 可以寫成 
 
+$$ 
+w_{t+1}= w_t + \alpha g_t 
+$$
 
+$$
+\mbox{Simple Idea: time dependent decay} \quad \alpha^t = \frac{\alpha}{\sqrt{t+1}}
+$$
 
 
 
 
 
 
+\subsubsection*{Adagrad} 
 
+\begin{align}
+  w_{t+1} &= w_t + \frac{\alpha_t}{\sigma_t} g_t \qquad \sigma_t: \mbox{root mean square of previous g}
+\end{align}
 
+越走越慢，root mean square 考慮了二次微分的影響
 
 
+\includegraphics[width=.8\textwidth]{paste_src/2025-03-20-06-21-55.png}
+\subsubsection*{Momentum}
+如果上一次的梯度跟這次同方向的話，$|v|$會越來越大，$\mu$用以減少學習率震盪
 
+\begin{align}
+  v_{t+1} &= \mu v_{t} + (1-\mu) g_t \\
+  w_{t+1} &= w_t + \alpha v_{t+1}
+\end{align}
 
 
 
 
 
+\subsection{Activation Function}
+\includegraphics[width=.6\textwidth]{paste_src/2025-03-20-03-47-32.png}
 
+線性函數的 model 解決不了大部分的問題，所以機器學習的 model 會引入 S 型的函數作為 Activation Function，例如 Sigmoid function:
+$$
+y= \frac{1}{1+e^x}
+$$
+所以最後的 model 會形如 
+$$
+\mbox{let}\quad r = b + Wx 
+$$
+$$
+y = \sum_i c_i \frac{1}{1+e^{r}} = \sum_i c_i Sigmoid(r) =C^TSigmoid(r)
+$$
 
 
 
@@ -344,61 +125,61 @@ itemA   & itemB   & itemC \\
 
 
 
-\section{讀流程圖}
 
-\begin{figure}[!htp]
-  \centering
-  \begin{tikzpicture}[node distance=2cm]
 
-  \node (start) [startstop] {用戶透過手機app或是網頁拍攝微笑照片};
-  \node (input1) [process,below of=start] {照片上傳伺服器};
-  \node (process1) [process,below of=input1] {伺服器即時自動分析微笑照片};
-  \node (out) [startstop,below of=process1] {將分析結果回傳到手機};
 
 
-  \draw [arrow] (start) -- (input1);
-  \draw [arrow] (input1) -- (process1);
-  \draw [arrow] (process1) -- (out);
 
+\section{ 除錯 }
 
-  \end{tikzpicture}
-\end{figure}
+\includegraphics[width=.8\textwidth]{paste_src/2025-03-20-04-20-03.png}
 
+預測結果很爛?先看 Training data 的 loss 除錯。一個好的 loss 應該要像上圖，除錯流程如下:
 
-\newpage
-\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{a.png}};
-\section{背景}
-\subsection{tikz 實現}
-編譯第一次會怪怪的，再一次就ok
-\clearpage
 
 
-\newpage
+\begin{forest}
+  [loss on train data 
+    [large
+      [model bias]
+      [optimization]
+    ]
+    [small
+      [loss on testing data
+        [large
+          [overfitting]
+          [mismatch]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
 
+\subsection*{Model Bias}
+要找的function 不在 model 裡面
+\begin{itemize}
+  \item 使用更複雜或更有彈性的模型。
+  \item 增加 Training data，提高數據多樣性。
+  \item 增加更多有意義的特徵。
+\end{itemize}
 
+\subsection*{Optimization}
 
-\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{a.png}}
+梯度下降法不能讓 Loss 無法有效降低
+\begin{itemize}
+  \item Learning rate (過大、過小或不合適的優化器)
+  \item 梯度消失或梯度爆炸
+\end{itemize}
 
-\subsection{eso-pic}
-text
-\clearpage
+\includegraphics[width=1\textwidth]{paste_src/2025-03-20-04-48-18.png}
 
-\section{怪東西}
-\subsection{對對齊}
-\url{https://zhuanlan.zhihu.com/p/99406531}
 
-\begin{table}[htb]
-	\begin{tabular}{ccc}
-		\toprule
-		{ Joint} & {hi} & {hi} \\ \midrule
-		{1} & {[\textover{0}{100}, 500]} & {[\textover[c]{1}{100}, 1000]} \\
-		{2} & {[\textover[c]{0}{100}, 500]} & \textover[c]{1}{100}, \textover[c]{1000}{1111} \\
-    3 & [\textover[r]{0}{100}, 500] & \textover[c]{1}{100}, \textover[c]{1000}{1111} \\
-		\bottomrule
-			\end{tabular}
-\end{table}
 
+\subsection*{Overfitting}
 
+\includegraphics[width=1\textwidth]{paste_src/2025-03-20-04-57-13.png}
 
-\bibliography{bibfile} 
-\bibliographystyle{unsrt}
+\begin{itemize}
+  \item 增加訓練資料
+  \item 減少 model 彈性 
+\end{itemize}
