@@ -1,0 +1,25 @@
+## --- LaTeX 暫存與輸出檔案 ---
+# 忽略所有編譯過程產生的輔助檔
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.out
+*.lof
+*.lot
+
+# 忽略最終生成的 PDF (如果你希望在 Git 保留 PDF 紀錄，請刪除下面這行)
+#template.pdf
+
+## --- VS Code 設定 ---
+# 忽略 VS Code 的個人化設定資料夾
+.vscode/
+
+## --- 系統與雜項 ---
+# 忽略作業系統產生的隱藏檔 (如 macOS 的 .DS_Store)
+.DS_Store
+Thumbs.db
