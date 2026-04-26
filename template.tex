@@ -1,315 +1,67 @@
-\documentclass[12pt, a4paper,hyperref]{article} % 必須使用Xelatex編譯
-%\usepackage{ctex}
-\usepackage[margin=3cm]{geometry} % 上下左右距離邊緣3cm
-\usepackage{amsmath,amsthm,amssymb} % 引入 AMS 數學環境
-\usepackage{ragged2e} %更好的斷行、對齊(\Centering, \RaggedLeft, and \RaggedRight \justifying)
+% !TEX program = xelatex
+\documentclass[12pt, a4paper, hyperref]{article}
 
+% ============================================================
+% 0. 衝突處理 (解決 Option Clash)
+% ============================================================
+% 必須在載入任何會呼叫顏色的套件 (如 tikz) 之前定義參數
+\PassOptionsToPackage{dvipsnames, svgnames, x11names, usenames}{xcolor}
 
-\usepackage{hyperref} % 生成書籤
-\usepackage{bookmark} % 書籤加強版
-\usepackage[square, comma, numbers, super, sort&compress]{natbib}  % bib cite加強版
+% ============================================================
+% 1. 基礎排版與數學套件
+% ============================================================
+\usepackage[margin=3cm]{geometry}      % 邊距 3cm
+\usepackage{amsmath, amsthm, amssymb}  % 數學環境
+\usepackage{ragged2e}                  % 優化斷行與對齊(\Centering, \RaggedLeft, and \RaggedRight \justifying)
+\usepackage{yhmath}                    % 數學符號
+\usepackage{type1cm}                   % 字體大小設定
+\usepackage{calc}                      % 計算長度用
+\usepackage{indentfirst}               % 首行縮排
 
-\usepackage{xeCJK} % 中文
-\usepackage{yhmath} % math symbol
+% ============================================================
+% 2. 中文字體與語系 (XeLaTeX)
+% ============================================================
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{zhnumber}                  % 中文數字
 
-\usepackage{fontspec} % 加這個就可以設定字體
-\usepackage{type1cm} % 設定fontsize用
-\usepackage[dvipsnames, svgnames, x11names, usenames]{xcolor}% 可以使用顏色\color{red}
-\usepackage{sectsty} %section 格式
-\usepackage{titlesec} % 設定section等的字體
-
-\usepackage{eso-pic} % 背景
-\usepackage{titling} % 加強 title 功能
-\usepackage{fancyhdr} % 頁首頁尾
-\usepackage{multicol} % 局部分欄
-\usepackage{indentfirst} %首行縮排
-
-\usepackage{tabularx} % 加強版 table
-\usepackage{booktabs} % 三線表靠它了	
-\usepackage{multirow} % 表格欄位合併
-\usepackage{diagbox} % 表格畫斜線，上下有字
-
-\usepackage{enumerate}  % 有序清單
-\usepackage{enumitem} % 無序清單
-\usepackage{listings} % 清單(coding)
-\usepackage{zhnumber} % 數字變中文、中文編號 https://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/zhnumber/zhnumber.pdf
-
-
-
-
-
-\usepackage{graphicx} % 圖形插入用
-\usepackage{float}  % 浮動環境
-%\usepackage{wrapfig} % 文繞圖
-\usepackage{subfigure} % 並排圖片
-
-\usepackage[version=4]{mhchem} % 化學模式\ce{[AgCl2]-}
-\usepackage{chemfig} % 化學結構
-
-
-\usepackage{verbatim}  % 原樣輸出文本，忽视TeX命令。
-\usepackage{cancel} % 數學環境內把字劃掉 \cancel, \bcancel \xcancel \cancelto{<value>}{<expression>}
-\usepackage[normalem]{ulem} % 刪除線\sout{}
-\usepackage{pifont} %加入一些符號 https://dl.icdst.org/pdfs/files3/1900293ae8829c4c53fe55f2c9f0077c.pdf
-\usepackage{bbm} % 填補 mathbb 沒有小寫的缺憾 ex. $\mathbbm{1}$
-%\usepackage{cchess}%象棋
-
-
-
-
-%%%%%url%%%%%
-\usepackage{url}%網址會亮
-\def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
-\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V
-\do\W\do\X\do\Y\do\Z\do\[\do\\\do\]\do\^\do\_\do\`\do\a\do\b
-\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n
-\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
-\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\,
-\do\?\do\'\do+\do\=\do\#}%URL断行
-
-%%%%%%%%%%%%%%%%%%%%TIKZ%%%%%%%%%%%%%%%%%%%%%%
-
-
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes,chains}
-\tikzstyle{ arrow1 } = [thick, ->, >= stealth]
-
-
-%%%%%%%%%%%%%%%%%%%%%%空白填滿%%%%%%%%%%%%%%%%%%%%
-\usepackage{calc}%算距離之類的
-\newcommand{\textover}[3][l]{%
-	% #1 is the alignment, default l
-	% #2 is the text to be printed
-	% #3 is the text for setting the width
-	\makebox[\widthof{#3}][#1]{#2}%
-}
-
-
-%%%%%%%%%%章節計數器設定%%%%%%%%%%%%%%%%%
-%\arabic 阿拉伯數字
-%\roman 小寫的羅馬數字
-%\Roman 大寫的羅馬數字
-%\alph 小寫字母
-%\Alph 大寫字母
-%\zhnum 中文
-
-%\ctexset{
- % section={
-  %  name={第,章},
-   % numbers=\chinese{section}
-  %}
-%}
-\zhnumsetup{style={Traditional,Financial}}
-\renewcommand\thesection{\zhnum{section}}%章節計數器類型
-\renewcommand\thesubsection{(\zhnum{subsection})}
-%\renewcommand\thesubsubsection{\arabic{subsubsection}}
-\zhnumsetup{style={Traditional,Normal}}
-
-%\renewcommand\thesection{\zhnum{subsection}}
-
-\makeatletter % 麻煩的中文標號
-\renewcommand\@seccntformat[1]{
-\def\temp@@a{#1}%
-\def\temp@@b{section}%
-\ifx\temp@@a\temp@@b
-\csname the#1\endcsname、 
-\else
-\csname the#1\endcsname\hspace{0.5em}%
-\fi
-}
-\makeatother
-
-
-
-%%%%%%%%%%%%%%計數器%%%%%%%%%%%%%%%
-\newtheoremstyle{newthm}
-  {}{}%       上下間距
-  {}%               內文字體
-  {}%               縮排
-  {\bf}%            標頭字體
-  {.}%              標頭後標點
-  {5pt}%            內文與標頭距離
-  {}%               Theorem head spec (can be left empty, meaning 'normal')
-
-\theoremstyle{newthm} 
-\newtheorem{ans}{Answer}[section] %答案
-\newtheorem{ax}{Axiom}[section] %公理
-\newtheorem{cl}{Corollary}[section] %推論
-\newtheorem{con}{Conclusion}[section] %結論
-\newtheorem{clm}{Claim}[section] %主張,聲稱
-\newtheorem{df}{Definition}[subsubsection] %定義
-\newtheorem{ex}{Example}[section] %例題
-\newtheorem{exs}{Exercise}[section] %習題
-\newtheorem{lm}{Lemma}[section] %引理
-\newtheorem{pr}{Problem} %問題
-\newtheorem{pf}{Proof}[subsubsection] %證明
-\newtheorem{pro}{Property}[section] %性質
-\newtheorem{prop}{Proposition}[section] %提議
-\newtheorem{rem}{Remark}[section] %備註
-\newtheorem{sol}{Solution}[section] %解答
-\newtheorem{thm}{Theorem}[section] %定理
-\newtheorem{dsc}{Discussion\vspace*{0.3em}}
-
-
-\newcommand{\resetcounters}
-    {
-    %\setcounter{<newtheorem>}{<目錄級數>}
-    \setcounter{section}{0}
-    \setcounter{ans}{0}
-    \setcounter{ax}{0}
-    \setcounter{cl}{0}
-    \setcounter{con}{0}
-    \setcounter{clm}{0}
-    \setcounter{df}{0}
-    \setcounter{ex}{0}
-    \setcounter{exs}{0}
-    \setcounter{lm}{0}
-    \setcounter{pr}{0}
-    \setcounter{pf}{0}
-    \setcounter{pro}{0}
-    \setcounter{prop}{0}
-    \setcounter{rem}{0}
-    \setcounter{sol}{0} 
-    \setcounter{thm}{0}
-    \setcounter{dsc}{0}
-
-}
-
-
-%%%%%%%%%%%%%%交叉引用hyperref 設定%%%%%%%%%%%%%%%
-\usepackage{prettyref}% 放超連結\label{}\prettyref{}
-\hypersetup{hidelinks,
-unicode=true,
-colorlinks=true,
-allcolors=black,
-pdfstartview=Fit,
-breaklinks=true,
-bookmarksdepth=true, % 生成目錄
-psdextra=true
-}
-\newrefformat{ans}{Answer\ref{#1}} %答案
-\newrefformat{ax}{Axiom\ref{#1}} %公理
-\newrefformat{cl}{Corollary\ref{#1}} %推論
-\newrefformat{con}{Conclusion\ref{#1}} %結論
-\newrefformat{clm}{Claim\ref{#1}} %主張,聲稱
-\newrefformat{df}{Definition\ref{#1}} %定義
-\newrefformat{ex}{Example\ref{#1}} %例題
-\newrefformat{exs}{Exercise\ref{#1}} %習題
-\newrefformat{lm}{Lemma\ref{#1}} %引理
-\newrefformat{pr}{Problem\ref{#1}} %問題
-\newrefformat{pf}{Proof\ref{#1}} %證明
-\newrefformat{pro}{Property\ref{#1}} %性質
-\newrefformat{prop}{Proposition\ref{#1}} %提議
-\newrefformat{rem}{Remark\ref{#1}} %備註
-\newrefformat{sol}{Solution\ref{#1}} %解答
-\newrefformat{thm}{Theorem\ref{#1}} %定理
-\newrefformat{dsc}{Discussion\ref{#1}} %討論
-
-\newrefformat{fig}{\figurename\ \ref{#1}} %圖片標號
-\newrefformat{tab}{\tablename\ \ref{#1}} %圖片標號
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%caption%%%%%%%%%%https://latex-tutorial.com/caption-customization-latex/
-\usepackage{booktabs}
-\usepackage{array, caption, threeparttable}
-\usepackage[labelfont=bf]{caption}
-
-
-% Label format
-\DeclareCaptionLabelFormat{custom}
-{
-      #1 \textbf{#2}
-}
-\DeclareCaptionLabelSeparator{custom}{
- 
-}
-\DeclareCaptionFormat{custom}
-{%
-  #1#2 #3
-}
-
-\captionsetup{
-  format=custom,%
-  labelformat=custom,%
-  labelsep=none,
-  textfont=normalfont,
-}
-
-\captionsetup[table]{
-  %labelsep=newline,%换行
-  %font={small,bf,stretch=1},%字形, 行距
-  justification=raggedright,
-  singlelinecheck=false,%預設情況下，如果標題適合單行，標準 LaTeX 文件類別會自動將標題居中。標題包也適應這種行為，因此通常會忽略您在這種情況下設定的理由。您可以透過設定選項singlelinecheck=false來停用此特殊處理。
-}
-\renewcommand{\figurename}{Fig} %重定義圖片编号前缀词
-\renewcommand{\tablename}{Table} %重定義表格编号前缀词
-\renewcommand{\thesubfigure}{(\roman{subfigure})}%設定圖片編號
-
-
-
-%%%%%%%%%%%%%%%頁面設定%%%%%%%%%%%%%%%
-\setlength{\headheight}{15pt}  %with titling
-\setlength{\droptitle}{-1.5cm} %title 與上緣的間距
-\parindent=24pt %設定縮排的距離
-\setlength{\parskip}{0.3em} %段落距離
-%\parskip=1ex  %設定行距
-%\pagestyle{empty}  % empty: 無頁碼
-%\pagestyle{fancy}  % fancy: fancyhdr
-
-%use with fancygdr
-%\lhead{\leftmark}
-%\chead{}
-%\rhead{}
-%\lfoot{}
-%\cfoot{}
-%\rfoot{\thepage}
-%\renewcommand{\headrulewidth}{0.4pt}
-%\renewcommand{\footrulewidth}{0.4pt}
-
-%\fancypagestyle{firststyle}
-%{
-  %\fancyhf{}
-  %\fancyfoot[C]{\footnotesize Page \thepage\ of \pageref{LastPage}}
-  %\renewcommand{\headrule}{\rule{\textwidth}{\headrulewidth}}
-%}
-
-%%%%%%%%%%%%%%%%%%%%%%%字體%%%%%%%%%%%%%%%%%%%
-\usepackage{fontspec}                  %引入字体设置宏包
 \setmainfont{Times New Roman}
-%%%%%%%%%%%%%%中文 Environment%%%%%%%%%%%%%%%
-\setCJKmainfont{AR PL KaitiM Big5}
-\setCJKsansfont{AR PL KaitiM Big5}
-\setCJKmonofont{AR PL KaitiM Big5}
-\defaultCJKfontfeatures{AutoFakeBold=6,AutoFakeSlant=.4} %以後不用再設定粗斜
+\setCJKmainfont[AutoFakeBold=3, AutoFakeSlant=.4]{標楷體}
 \newCJKfontfamily\Kai{標楷體}
 \newCJKfontfamily\Hei{微軟正黑體}
 \newCJKfontfamily\NewMing{新細明體}
-\setCJKmainfont[AutoFakeBold=3,AutoFakeSlant=.4]{標楷體}%中文字分開設定字體
-\XeTeXlinebreaklocale "zh"             %這兩行一定要加，中文才能自動換行
-\XeTeXlinebreakskip = 0pt plus 1pt     %這兩行一定要加，中文才能自動換行
+\defaultCJKfontfeatures{AutoFakeBold=6, AutoFakeSlant=.4}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
 
 
-%%%%%%%%%%%%%%%%%%%預設字體大小%%%%%%%%%%%%%%%%%%%%%%%
+\setCJKmonofont[AutoFakeBold=3]{標楷體} % 修正 xeCJK 警告
 
-%\def\tiny{\fontsize{5}{4}\selectfont}
-%\def\scriptsize {\fontsize{7}{6}\selectfont}
-%\def\footnotesize{\fontsize{8}{9}\selectfont}
-%\def\small{\fontsize{9}{10}\selectfont}
-%\def\normalsize{\fontsize{12}{14}\selectfont}
-%\def\large{\fontsize{12}{14}\selectfont}
-%\def\Large{\fontsize{14}{16}\selectfont}
-%\def\LARGE{\fontsize{18}{27}\selectfont}
-%\def\huge{\fontsize{32}{48}\selectfont}
-%\def\Huge{\fontsize{36}{54}\selectfont}
 
-%%%%%%%%%%%%%%code Environment%%%%%%%%%%%%%%%
+
+% ============================================================
+% 3. 圖表、化學與繪圖
+% ============================================================
+\usepackage{graphicx}                  % 圖片
+\usepackage{float}                     % 浮動環境 [H]
+\usepackage{subfigure}                 % 並排圖片
+\usepackage{tabularx, booktabs, multirow, diagbox, multicol} % 注意這裡沒有 s} % 進階表格
+\usepackage[version=4]{mhchem}         % 化學式 \ce{[AgCl2]-}
+\usepackage{chemfig}                   % 化學結構
+\usepackage{tikz}                      % 繪圖
+\usetikzlibrary{arrows, shapes, chains}
+
+% ============================================================
+% 4. 樣式自訂 (Section, Header, Caption)
+% ============================================================
+\usepackage{xcolor}                    % 顏色 (參數已由 PassOptions 提供)，可以使用顏色\color{red}
+\usepackage{sectsty, titlesec}         % 標題格式
+\usepackage{eso-pic}                   % 背景
+\usepackage{titling}                   % 標題強化
+\usepackage{fancyhdr}                  % 頁眉頁腳
+\usepackage{caption, threeparttable}   % 標題自訂
+
 \definecolor{commentgreen}{RGB}{2,112,10}
 \definecolor{eminence}{RGB}{108,48,130}
 \definecolor{weborange}{RGB}{255,165,0}
@@ -317,18 +69,121 @@ psdextra=true
 
 
 
-%%%%%%%%%%%%%%%重定義一些command%%%%%%%%%%%%%%%
-\renewcommand{\contentsname}{目錄}  %設定目錄的標題名稱
-\renewcommand{\refname}{參考資料}  %設定參考資料的標題名稱
-\renewcommand{\abstractname}{\LARGE Abstract} %設定摘要的標題名稱
 
-%%%%%%%%%%%%%% new commands: %%%%%%%%%%%%%%
+
+
+% ============================================================
+% 5. 程式碼、列表與引用
+% ============================================================
+\usepackage{listings}                  % 程式碼
+\usepackage{enumerate, enumitem}       % 清單
+\usepackage{verbatim}                  % 原樣輸出
+\usepackage{cancel}                    % 數學劃掉
+\usepackage[normalem]{ulem}            % 刪除線
+\usepackage{pifont, bbm}               % 特殊符號
+\usepackage{url}                       % 網址
+\usepackage{prettyref}                 % 交叉引用
+\usepackage{hyperref}                  % 超連結\label{}\prettyref{}
+\usepackage{bookmark}                  % 書籤
+\usepackage[square, comma, numbers, super, sort&compress]{natbib} % 引用格式
+
+
+\hypersetup{
+    hidelinks,
+    unicode=true,
+    colorlinks=true,
+    allcolors=black,
+    pdfstartview=Fit,
+    breaklinks=true,
+    bookmarksdepth=true,
+    psdextra=true
+}
+
+
+
+% ============================================================
+% 6. 使用者定義指令 (保持原稿邏輯)
+% ============================================================
+
+% --- URL 斷行 ---
+\def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
+\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V
+\do\W\do\X\do\Y\do\Z\do\[\do\\\do\]\do\^\do\_\do\`\do\a\do\b
+\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n
+\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
+\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\,\do\?\do\'\do+\do\=\do\#}
+
+% --- 中文標號 ---
+\zhnumsetup{style={Traditional,Financial}}
+\renewcommand\thesection{\zhnum{section}}
+\renewcommand\thesubsection{(\zhnum{subsection})}
+\zhnumsetup{style={Traditional,Normal}}
+
+\makeatletter
+\renewcommand\@seccntformat[1]{
+  \def\temp@@a{#1}\def\temp@@b{section}%
+  \ifx\temp@@a\temp@@b \csname the#1\endcsname、 \else \csname the#1\endcsname\hspace{0.5em}\fi
+}
+\makeatother
+
+% --- 定理與計數器 ---
+\newtheoremstyle{newthm}{}{}{}{}{\bf}{.}{5pt}{}
+\theoremstyle{newthm} 
+\newtheorem{ans}{Answer}[section]
+\newtheorem{ax}{Axiom}[section]
+\newtheorem{cl}{Corollary}[section]
+\newtheorem{con}{Conclusion}[section]
+\newtheorem{clm}{Claim}[section]
+\newtheorem{df}{Definition}[subsubsection]
+\newtheorem{ex}{Example}[section]
+\newtheorem{exs}{Exercise}[section]
+\newtheorem{lm}{Lemma}[section]
+\newtheorem{pr}{Problem}
+\newtheorem{pf}{Proof}[subsubsection]
+\newtheorem{pro}{Property}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{sol}{Solution}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{dsc}{Discussion\vspace*{0.3em}}
+
+\newcommand{\resetcounters}{
+    \setcounter{section}{0}\setcounter{ans}{0}\setcounter{ax}{0}\setcounter{cl}{0}
+    \setcounter{con}{0}\setcounter{clm}{0}\setcounter{df}{0}\setcounter{ex}{0}
+    \setcounter{exs}{0}\setcounter{lm}{0}\setcounter{pr}{0}\setcounter{pf}{0}
+    \setcounter{pro}{0}\setcounter{prop}{0}\setcounter{rem}{0}\setcounter{sol}{0} 
+    \setcounter{thm}{0}\setcounter{dsc}{0}
+}
+
+% --- 交叉引用標記 ---
+\newrefformat{ans}{Answer\ref{#1}} \newrefformat{ax}{Axiom\ref{#1}}
+\newrefformat{cl}{Corollary\ref{#1}} \newrefformat{con}{Conclusion\ref{#1}}
+\newrefformat{clm}{Claim\ref{#1}} \newrefformat{df}{Definition\ref{#1}}
+\newrefformat{ex}{Example\ref{#1}} \newrefformat{exs}{Exercise\ref{#1}}
+\newrefformat{lm}{Lemma\ref{#1}} \newrefformat{pr}{Problem\ref{#1}}
+\newrefformat{pf}{Proof\ref{#1}} \newrefformat{pro}{Property\ref{#1}}
+\newrefformat{prop}{Proposition\ref{#1}} \newrefformat{rem}{Remark\ref{#1}}
+\newrefformat{sol}{Solution\ref{#1}} \newrefformat{thm}{Theorem\ref{#1}}
+\newrefformat{dsc}{Discussion\ref{#1}} \newrefformat{fig}{\figurename\ \ref{#1}}
+\newrefformat{tab}{\tablename\ \ref{#1}}
+
+% --- Caption 設定 ---
+\DeclareCaptionLabelFormat{custom}{#1 \textbf{#2}}
+\DeclareCaptionLabelSeparator{custom}{ }
+\DeclareCaptionFormat{custom}{#1#2 #3}
+\captionsetup{format=custom, labelformat=custom, labelsep=none, textfont=normalfont}
+\captionsetup[table]{justification=raggedright, singlelinecheck=false}
+\renewcommand{\figurename}{Fig}
+\renewcommand{\tablename}{Table}
+\renewcommand{\thesubfigure}{(\roman{subfigure})}
+
+% --- 其他自定義命令 ---
+\newcommand{\textover}[3][l]{\makebox[\widthof{#3}][#1]{#2}}
 \newcommand{\np}[1]{\\[{#1}] \indent}
 \newcommand{\transpose}[1]{{#1}^\mathrm{T}}
 \newcommand{\adj}{\mathrm{adj}}
 \newcommand{\degree}{^\circ}
 \newcommand{\degc}{$^\circ$C}
-
 \newcommand{\Arc}[1]{\wideparen{{#1}}}
 \newcommand{\sline}[1]{\overleftrightarrow{{#1}}}
 \newcommand{\Ray}[1]{\overrightarrow{{#1}}}
@@ -336,57 +191,45 @@ psdextra=true
 \renewcommand{\proofname}{\bf {證明:}} 
 \newcommand{\pole}[2]{\mathbb{P}_{\mathcal{#1}} (#2)}
 \newcommand{\tg}[2]{\mathcal{T}_{\mathcal{#1}} (#2)}
-\newcommand{\upcite}[1]{\cite{#1}} %参考文献上标
+\newcommand{\upcite}[1]{\cite{#1}}
 
+\newcount\thisyear \thisyear=\year \advance\thisyear by -1911
+\newcommand{\ROCtoday}{\the\thisyear 年 \the\month 月 \the\day 日}
 
-\newcount\thisyear%%%中華民國年月日
-\thisyear=\year%%%中華民國年月日
-\advance\thisyear by -1911%%%中華民國年月日
-\newcommand{\ROCtoday}{\the\thisyear 年 \the\month 月 \the\day 日}%%%中華民國年月日
-
+% ============================================================
+% 7. 文件開始
+% ============================================================
 \begin{document}
-%%%%%%%%%%%%%%頁首頁尾們%%%%%%%%%%%%%%%%%%%
-\lhead{\rightmark}
-\chead{}
-\cfoot{}
-\rfoot{\thepage}%右下角顯示頁碼
-%%%%%%%%%%%%%%%%%%%%%%code environment setting%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{\rightmark} \chead{} \cfoot{} \rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- Listings 設定 ---
 \lstset {
-    language=python,
-    frame=tb,
-    tabsize=4,
-    showstringspaces=false,
-    numbers=left,
-    %upquote=true,
-    commentstyle=\color{commentgreen},
-    keywordstyle=\color{eminence},
-    stringstyle=\color{red},
-    basicstyle=\small\ttfamily, % basic font setting
-    emph={int,char,double,float,unsigned,void,bool},
-    emphstyle={\color{blue}},
-    escapechar=\&,
-    % keyword highlighting
-    classoffset=1, % starting new class
-    otherkeywords={>,<,.,;,-,!,=,~},
-    morekeywords={>,<,.,;,-,!,=,~},
-    keywordstyle=\color{weborange},
-    classoffset=0,
-    breaklines,%自動換行
+    language=python, frame=tb, tabsize=4, showstringspaces=false, numbers=left,
+    commentstyle=\color{commentgreen}, keywordstyle=\color{eminence}, stringstyle=\color{red},
+    basicstyle=\small\ttfamily, emph={int,char,double,float,unsigned,void,bool},
+    emphstyle={\color{blue}}, escapechar=\&, classoffset=1,
+    otherkeywords={>,<,.,;,-,!,=,~}, morekeywords={>,<,.,;,-,!,=,~},
+    keywordstyle=\color{weborange}, classoffset=0, breaklines=true
 }
-%%%%%%%%%%%%%%%%%%%%%流程圖定義%%%%%%%%%%%%%%%%%%%%%%
+
+% --- TikZ 樣式 ---
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 10cm, minimum height=1cm,text centered, draw = black, fill = red!40]
 \tikzstyle{process} = [rectangle, minimum width = 10cm, minimum height = 1cm, text centered, draw = black]
 \tikzstyle{io} = [trapezium, trapezium left angle = 70,trapezium right angle=110,minimum width=3cm,minimum height=1cm,text centered,draw=black]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzstyle{arrow1} = [thick, ->, >= stealth]
 
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+% --- 頁面最終設定 ---
+\setlength{\headheight}{15pt}
+\setlength{\droptitle}{-1.5cm}
+\parindent=24pt
+\setlength{\parskip}{0.3em}
 \parindent=0pt
-
-
-\pagestyle{fancy}%上下有槓槓
+\pagestyle{fancy}
 
 \input{content.tex}
 
